@@ -1,18 +1,18 @@
 package model;
 
 import java.time.LocalDate;
+import util.Formatador;
 
 public class Afazeres {
     private String nome;
     private String descricao;
-    private LocalDate data;
+    private LocalDate data = LocalDate.now();
 
     public Afazeres() {}
 
-    public Afazeres(String nome, String descricao, LocalDate data) {
+    public Afazeres(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
-        this.data = data;
     }
 
     public void setNome(String nome) {
@@ -31,18 +31,10 @@ public class Afazeres {
         return descricao;
     }
 
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
-
-    public LocalDate getData(){
-        return data;
-    }
-
     @Override
     public String toString() {
-        return "Nome: " + nome + "- Data: " + data + "\n" +
-                "Descrição: " + descricao;
+        return "\n----- Objetivo: " + nome + " --- Criado dia: " + Formatador.formatDate(data) + " -----\n" +
+                " * Meta: " + descricao + "\n";
     }
 
 }
